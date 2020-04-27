@@ -45,5 +45,5 @@ Dispatcher feature code for a [ultimately censored] app - just another bit of tr
 <p></p>
 <strong>Проработка технологического стека</strong> 
 
-<br/>
+<br/><br/><br/>
 Факторы оптимальности текущей структуры стека:<br/>
