@@ -26,7 +26,7 @@ Dispatcher feature code for a [ultimately censored] app - just another bit of tr
 
 Рис. 2. Схема определения базовых классов (not match, but tribute to UML class diagram).<br/>
 ![allegedClasses (2)](https://user-images.githubusercontent.com/55311053/80410118-58a1ee00-88ca-11ea-870e-07491dda0dd3.jpg)
-<br/><br/><br/>
+<br/><br/>
 
 Рис. 3. Схема определения программных интерфейсов.<br/>
 ![controller_db](https://user-images.githubusercontent.com/55311053/80387445-f1277680-88a8-11ea-8e96-ada1f01def62.jpg)
@@ -46,4 +46,4 @@ Dispatcher feature code for a [ultimately censored] app - just another bit of tr
 <strong>Проработка технологического стека</strong> 
 
 <br/>
-&nbsp;&nbsp;&nbsp; Факторы оптимальности текущей структуры стека:<br/>
+Факторы оптимальности текущей структуры стека:<br/>
