@@ -176,7 +176,7 @@ paths:
           schema:
             $ref: '#/definitions/Fail'
   /deleteServer:
-    post:
+    delete:
       description: remove specific server from device DB
       tags:
         - server
@@ -232,7 +232,7 @@ paths:
           schema:
             $ref: '#/definitions/Fail'
   /deleteCamera:
-    post:
+    delete:
       description: remove specific camera from device DB
       tags:
         - camera
@@ -400,7 +400,7 @@ paths:
           schema:
             $ref: '#/definitions/Fail'
   /bindCameraWithServer:
-    get:
+    put:
       description: set camera instance associate to server assigned
       tags:
         - dispatcher
@@ -423,7 +423,7 @@ paths:
           schema:
             $ref: '#/definitions/Fail'
   /unbindCamera:
-    get:
+    put:
       description: dissociate camera instance
       tags:
         - dispatcher
