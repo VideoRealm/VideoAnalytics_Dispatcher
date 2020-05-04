@@ -25,11 +25,15 @@ Dispatcher feature code for a [ultimately censored] app - just another bit of tr
 
 
 Рис. 2. Схема определения базовых классов (not match, but tribute to UML class diagram).<br/>
-![allegedClasses (2)](https://user-images.githubusercontent.com/55311053/80410118-58a1ee00-88ca-11ea-870e-07491dda0dd3.jpg)
-<br/><br/>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/55311053/80946282-f7a87780-8ded-11ea-9d7c-c387ed914283.jpg" />
+</p>  
+<br/>
 
 Рис. 3. Схема определения программных интерфейсов.<br/>
-![controller_db](https://user-images.githubusercontent.com/55311053/80387445-f1277680-88a8-11ea-8e96-ada1f01def62.jpg)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/55311053/80946323-1444af80-8dee-11ea-8e29-5bffa729b1ec.jpg" />
+</p> 
 
 Таблица 1. Состав и назначение функций API контроллера.
 | Функция | Назначение|
@@ -44,8 +48,6 @@ Dispatcher feature code for a [ultimately censored] app - just another bit of tr
 | unbindCamera | отмена ассоциации видеокамеры с фиксацией изменений в БД |
 <p></p>
 <strong>Проработка технологического стека</strong> 
-
-<br/><br/> 
 Факторы оптимальности текущей структуры стека:<br/>
 <br/> В качестве основного языка для разработки диспетчера был выбран Python.</br> 
 <br/>
