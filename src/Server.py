@@ -1,6 +1,13 @@
+import psycopg2
+
+conn = psycopg2.connect(dbname='postgres', user='postgres',
+                        password='123', host='localhost')
+
+
 class Server(object):
-    def __init__(self, networkAddress, location, productName, vendor, registeredOn, lastUpdateOn, note):
+    def __init__(self, server_id, networkAddress, productName, vendor, registeredOn, lastUpdateOn, note):
         # Constructor of the Server's class
+        self.server_id = server_id
         self.networkAddress = networkAddress
         self.productName = productName
         self.vendor = vendor
@@ -10,21 +17,73 @@ class Server(object):
 
     def add(self):
         # Method of adding the server into DataBase
-        """
-        INSERT INTO "Server" VALUES(...)
-        """
+        try:
+            cur = conn.cursor()
+            # execute the INSERT statement
+            sql = "INSERT INTO \"Server\" VALUES (%s,%s,%s,%s,%s,%s,%s)"
+            cur.execute(sql, (self.server_id, self.networkAddress, self.productName, self.vendor, self.registeredOn,
+                              self.lastUpdateOn, self.note))
+            # commit the changes to the database
+            conn.commit()
+            count = cur.rowcount
+            print(count, "addCamera success")
+
+        except (Exception, psycopg2.Error) as error:
+            if conn:
+                print("addCamera failed", error)
+
+        finally:
+            # closing database connection.
+            if conn:
+                cur.close()
+                conn.close()
+                print("PostgreSQL connection is closed")
 
     def setServerUpdate(self):
         # Method of changing the lastUpdateOn parameter in DataBase
-        """
-        UPDATE "Server" SET "lastUpdateOn" = self.lastUpdateOn
-        """
+        try:
+            cur = conn.cursor()
+            # execute the INSERT statement
+            sql = "UPDATE \"Server\" SET lastUpdateOn = %s WHERE server_id = %s"
+            cur.execute(sql, self.lastUpdateOn, self.server_id)
+            # commit the changes to the database
+            conn.commit()
+            count = cur.rowcount
+            print(count, "setServerUpdate success")
+
+        except (Exception, psycopg2.Error) as error:
+            if conn:
+                print("setServerUpdate failed", error)
+
+        finally:
+            # closing database connection.
+            if conn:
+                cur.close()
+                conn.close()
+                print("PostgreSQL connection is closed")
 
     def changeNetworkAddress(self):
         # Method of changing the network Address in DataBase
-        """
-        UPDATE "Server" SET "NetworkAddress" = self.NetworkAddress
-        """
+        try:
+            cur = conn.cursor()
+            # execute the INSERT statement
+            sql = "UPDATE \"Server\" SET 'NetworkAddress' = %s WHERE server_id = %s"
+            cur.execute(sql, self.networkAddress, self.server_id)
+            # commit the changes to the database
+            conn.commit()
+            count = cur.rowcount
+            print(count, "changeNetworkAddress Server success")
+
+        except (Exception, psycopg2.Error) as error:
+            if conn:
+                print("changeNetworkAddress Server failed", error)
+
+        finally:
+            # closing database connection.
+            if conn:
+                cur.close()
+                conn.close()
+                print("PostgreSQL connection is closed")
 
     def connectCamera(self):
         # Method of connecting camera to Server
@@ -58,6 +117,23 @@ class Server(object):
 
     def delete(self):
         # Method of deleting server
-        """
-        DELETE FROM "Server" where networkAddress=self.networkAddress
-        """
+        try:
+            cur = conn.cursor()
+            # execute the INSERT statement
+            sql = "DELETE FROM \"Server\" WHERE server_id = %s"
+            cur.execute(sql, self.server_id)
+            # commit the changes to the database
+            conn.commit()
+            count = cur.rowcount
+            print(count, "delete Server success")
+
+        except (Exception, psycopg2.Error) as error:
+            if conn:
+                print("delete Server failed", error)
+
+        finally:
+            # closing database connection.
+            if conn:
+                cur.close()
+                conn.close()
+                print("PostgreSQL connection is closed")
